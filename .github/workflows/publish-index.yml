@@ -75,5 +75,10 @@ jobs:
         env:
           URL: ${{ vars.LIBRARY_REFRESH_URL }}
           SECRET: ${{ secrets.LIBRARY_REFRESH_SECRET }}
+          # HEAD is the orphan index branch by now; this is the main commit the index was built from.
+          COMMIT: ${{ github.sha }}
+        # The raw CDN keeps serving the old index for a few minutes after the push, so the library
+        # is told which commit to wait for and retries until it sees it.
         run: |
-          curl --fail --silent --show-error -X POST -H "X-Registry-Secret: $SECRET" "$URL"
+          curl --fail --silent --show-error --max-time 30 -X POST -H "X-Registry-Secret: $SECRET" \
+            "$URL?commit=$COMMIT"
