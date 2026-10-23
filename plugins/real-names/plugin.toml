@@ -1,0 +1,16 @@
+[plugin]
+id = "real-names"
+official = true
+license = "MIT"
+language = "Kotlin"
+subject = "names"
+homepage = "https://github.com/Darkrock-Studios/hammer-plugins/tree/main/real-names"
+issues = "https://github.com/Darkrock-Studios/hammer-plugins/issues"
+maintainers = ["Wavesonics"]
+
+[source]
+github = "Darkrock-Studios/hammer-plugins"
+repo_id = 1404820522
+asset = "real-names.hammerplugin"
+tag_prefix = "real-names-v"
+auto_update = true

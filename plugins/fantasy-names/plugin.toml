@@ -1,0 +1,16 @@
+[plugin]
+id = "fantasy-names"
+official = true
+license = "MIT"
+language = "Kotlin"
+subject = "names"
+homepage = "https://github.com/Darkrock-Studios/hammer-plugins/tree/main/fantasy-names"
+issues = "https://github.com/Darkrock-Studios/hammer-plugins/issues"
+maintainers = ["Wavesonics"]
+
+[source]
+github = "Darkrock-Studios/hammer-plugins"
+repo_id = 1404820522
+asset = "fantasy-names.hammerplugin"
+tag_prefix = "fantasy-names-v"
+auto_update = true

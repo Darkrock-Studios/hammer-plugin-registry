@@ -1,0 +1,16 @@
+[plugin]
+id = "simple-grammar"
+official = true
+license = "MIT"
+language = "C"
+subject = "grammar"
+homepage = "https://github.com/Darkrock-Studios/hammer-plugins/tree/main/simple-grammar"
+issues = "https://github.com/Darkrock-Studios/hammer-plugins/issues"
+maintainers = ["Wavesonics"]
+
+[source]
+github = "Darkrock-Studios/hammer-plugins"
+repo_id = 1404820522
+asset = "simple-grammar.hammerplugin"
+tag_prefix = "simple-grammar-v"
+auto_update = true

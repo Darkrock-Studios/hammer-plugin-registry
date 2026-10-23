@@ -1,0 +1,16 @@
+[plugin]
+id = "languagetool"
+official = true
+license = "MIT"
+language = "Rust"
+subject = "grammar"
+homepage = "https://github.com/Darkrock-Studios/hammer-plugins/tree/main/languagetool"
+issues = "https://github.com/Darkrock-Studios/hammer-plugins/issues"
+maintainers = ["Wavesonics"]
+
+[source]
+github = "Darkrock-Studios/hammer-plugins"
+repo_id = 1404820522
+asset = "languagetool.hammerplugin"
+tag_prefix = "languagetool-v"
+auto_update = true

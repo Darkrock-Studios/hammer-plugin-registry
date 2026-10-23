@@ -1,0 +1,50 @@
+name: Report a plugin
+description: A plugin in the library is malicious, broken, or not what it says it is.
+title: "Report: "
+labels: ["report"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting. If the plugin is harming your work or your data, uninstall it first:
+        in Hammer, Settings, Plugins. Please don't post anything private, such as your manuscript or an
+        API key.
+  - type: input
+    id: plugin
+    attributes:
+      label: Plugin id
+      description: As in its address, plugins.hammer.ink/plugins/<id>.
+      placeholder: harper-grammar
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      placeholder: 0.1.0
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What is wrong
+      options:
+        - It does something harmful or malicious
+        - It does more than its permissions or description say
+        - It does not install or does not work
+        - Its listing is wrong or misleading
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: What happened
+      description: What you did, what you expected, and what happened instead.
+    validations:
+      required: true
+  - type: input
+    id: hammer
+    attributes:
+      label: Hammer version and platform
+      placeholder: Hammer 4.0 on Windows 11

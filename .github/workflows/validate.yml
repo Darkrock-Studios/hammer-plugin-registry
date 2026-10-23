@@ -1,0 +1,105 @@
+name: Validate
+
+# pull_request_target, so that pull requests from forks (how most plugins are submitted) can be labelled
+# and merged. It runs the base branch's tools, never the pull request's: the pull request is checked
+# out only as data, into pr/, and nothing in it is executed.
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+
+permissions: {}
+
+concurrency:
+  group: validate-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      needs_review: ${{ steps.validate.outputs.needs_review }}
+      auto_merge: ${{ steps.validate.outputs.auto_merge }}
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - name: Check out the base branch (the tools that run)
+        uses: actions/checkout@v4
+        with:
+          path: base
+          persist-credentials: false
+
+      - name: Check out the pull request (data only)
+        uses: actions/checkout@v4
+        with:
+          ref: refs/pull/${{ github.event.pull_request.number }}/merge
+          path: pr
+          persist-credentials: false
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - uses: actions/cache@v4
+        with:
+          path: ${{ runner.temp }}/assets
+          key: assets-${{ hashFiles('pr/plugins/*/plugin.toml') }}
+          restore-keys: assets-
+
+      - name: Look up the author's permission
+        id: author
+        env:
+          GH_TOKEN: ${{ github.token }}
+          AUTHOR: ${{ github.event.pull_request.user.login }}
+        shell: bash
+        run: |
+          # 404 means not a collaborator. Any other failure stops here rather than demoting the author.
+          if permission=$(gh api "repos/${{ github.repository }}/collaborators/$AUTHOR/permission" --jq .permission 2> "$RUNNER_TEMP/permission.err"); then
+            :
+          elif grep -q "HTTP 404" "$RUNNER_TEMP/permission.err"; then
+            permission=none
+          else
+            cat "$RUNNER_TEMP/permission.err" >&2
+            exit 1
+          fi
+          echo "permission=$permission" >> "$GITHUB_OUTPUT"
+
+      - name: Validate
+        id: validate
+        working-directory: base
+        shell: bash
+        env:
+          AUTHOR: ${{ github.event.pull_request.user.login }}
+          PERMISSION: ${{ steps.author.outputs.permission }}
+        run: |
+          python -m tools.validate --root ../pr --base-root . \
+            --author "$AUTHOR" --author-permission "$PERMISSION" \
+            --cache "$RUNNER_TEMP/assets" --github-output "$GITHUB_OUTPUT" \
+            | tee -a "$GITHUB_STEP_SUMMARY"
+
+  triage:
+    needs: validate
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      PR: ${{ github.event.pull_request.number }}
+    steps:
+      - name: Needs review
+        if: needs.validate.outputs.needs_review == 'true'
+        run: |
+          gh api -X POST "repos/$GH_REPO/issues/$PR/labels" -f "labels[]=needs-review" > /dev/null
+          gh pr merge "$PR" --disable-auto || true
+
+      - name: No review needed
+        if: needs.validate.outputs.needs_review != 'true'
+        run: gh api -X DELETE "repos/$GH_REPO/issues/$PR/labels/needs-review" > /dev/null 2>&1 || true
+
+      # Enables auto-merge rather than merging, so branch protection's required checks still decide.
+      - name: Enable auto-merge
+        if: needs.validate.outputs.needs_review != 'true' && needs.validate.outputs.auto_merge == 'true'
+        run: gh pr merge "$PR" --auto --squash

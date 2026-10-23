@@ -1,0 +1,13 @@
+id = "harper-grammar"
+name = "Harper grammar"
+version = "0.1.0"
+api = 1
+description = "Grammar and style checks from [Harper](https://writewithharper.com/), underlined as you write. Thorough, but large: it needs about 100 MB of memory."
+languages = ["en"]
+
+[[diagnostics]]
+name = "grammar"
+label = "Harper grammar"
+
+[limits]
+memory = 256

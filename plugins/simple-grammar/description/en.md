@@ -1,0 +1,3 @@
+Underlines slips a spell checker misses, such as "could of", "le arbre", "they was", and doubled words, along with spacing, capitals, and dialogue punctuation. It checks English, French, German, Spanish, Italian, and Ukrainian, and is small and fast: the whole package is about 48 KB.
+
+Its rules stay where they are sure, since every word involved is a real one. Its settings turn groups of checks on or off: word mistakes, verb agreement (and, separately, agreement in dialogue), punctuation and capitalization, and dialogue. Wordy phrases, redundant phrases, repeated marks such as "!!", and long sentences are off until you turn them on.

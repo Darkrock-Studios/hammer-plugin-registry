@@ -1,0 +1,16 @@
+[plugin]
+id = "reading-level"
+official = true
+license = "MIT"
+language = "Kotlin"
+subject = "report"
+homepage = "https://github.com/Darkrock-Studios/hammer-plugins/tree/main/reading-level"
+issues = "https://github.com/Darkrock-Studios/hammer-plugins/issues"
+maintainers = ["Wavesonics"]
+
+[source]
+github = "Darkrock-Studios/hammer-plugins"
+repo_id = 1404820522
+asset = "reading-level.hammerplugin"
+tag_prefix = "reading-level-v"
+auto_update = true

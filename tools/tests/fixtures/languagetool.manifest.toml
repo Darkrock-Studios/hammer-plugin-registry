@@ -1,0 +1,15 @@
+id = "languagetool"
+name = "LanguageTool"
+version = "0.1.0"
+api = 1
+description = "Grammar, punctuation, and style from [LanguageTool](https://languagetool.org), underlined as you write, in more than 30 languages. The text you write is sent to LanguageTool's servers to be checked, or to your own LanguageTool server if you run one."
+
+[permissions]
+http = ["api.languagetool.org", "api.languagetoolplus.com"]
+
+[permissions.userHosts]
+setting = "server"
+
+[[diagnostics]]
+name = "grammar"
+label = "LanguageTool"

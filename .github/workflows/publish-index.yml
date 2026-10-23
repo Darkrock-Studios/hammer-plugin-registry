@@ -1,0 +1,79 @@
+name: Publish index
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  # Merges made with the workflow token (auto-merge enabled by the validate workflow) start no push
+  # workflow, so a scheduled run catches main up; it does nothing when the index is current.
+  schedule:
+    - cron: "47 * * * *"
+
+permissions: {}
+
+concurrency:
+  group: publish-index
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+
+      - name: Check whether the index is current
+        id: current
+        run: |
+          head=$(git rev-parse HEAD)
+          published=""
+          if git fetch --depth 1 origin index 2>/dev/null; then
+            published=$(git show FETCH_HEAD:index.json | python3 -c 'import json, sys; print(json.load(sys.stdin)["commit"])' || true)
+          fi
+          if [ "$published" = "$head" ] && [ "${{ github.event_name }}" = "schedule" ]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/setup-python@v5
+        if: steps.current.outputs.skip != 'true'
+        with:
+          python-version: "3.12"
+
+      - uses: actions/cache@v4
+        if: steps.current.outputs.skip != 'true'
+        with:
+          path: ${{ runner.temp }}/assets
+          key: assets-${{ hashFiles('plugins/*/plugin.toml') }}
+          restore-keys: assets-
+
+      - name: Build index.json
+        if: steps.current.outputs.skip != 'true'
+        run: python -m tools.build_index --out "$RUNNER_TEMP/index.json" --cache "$RUNNER_TEMP/assets"
+
+      - name: Push it as the only file on the index branch
+        if: steps.current.outputs.skip != 'true'
+        run: |
+          commit=$(git rev-parse HEAD)
+          git switch --orphan index
+          cp "$RUNNER_TEMP/index.json" index.json
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add --force index.json
+          git commit -q -m "index.json for $commit"
+          git push --force origin index
+
+      - name: Tell the library to refresh
+        if: steps.current.outputs.skip != 'true' && vars.LIBRARY_REFRESH_URL != ''
+        env:
+          URL: ${{ vars.LIBRARY_REFRESH_URL }}
+          SECRET: ${{ secrets.LIBRARY_REFRESH_SECRET }}
+        run: |
+          curl --fail --silent --show-error -X POST -H "X-Registry-Secret: $SECRET" "$URL"

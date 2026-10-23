@@ -1,0 +1,37 @@
+# The subjects plugins are filed under. A call number's hundreds come from the drawer
+# (100 export, 200 action, 300 diagnostic, 400 command); the tens are chosen here.
+
+[submission]
+name = "Submission"
+drawer = "export"
+call = "110"
+
+[report]
+name = "Reports"
+drawer = "action"
+call = "210"
+
+[names]
+name = "Names"
+drawer = "action"
+call = "220"
+
+[characters]
+name = "Characters"
+drawer = "action"
+call = "230"
+
+[grammar]
+name = "Grammar"
+drawer = "diagnostic"
+call = "310"
+
+[continuity]
+name = "Continuity"
+drawer = "diagnostic"
+call = "320"
+
+[ai-agents]
+name = "AI agents"
+drawer = "command"
+call = "410"
