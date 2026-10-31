@@ -1,0 +1,16 @@
+[plugin]
+id = "ao3"
+official = true
+license = "MIT"
+language = "Kotlin"
+subject = "submission"
+homepage = "https://github.com/Darkrock-Studios/hammer-plugins/tree/main/ao3"
+issues = "https://github.com/Darkrock-Studios/hammer-plugins/issues"
+maintainers = ["Wavesonics"]
+
+[source]
+github = "Darkrock-Studios/hammer-plugins"
+repo_id = 1404820522
+asset = "ao3.hammerplugin"
+tag_prefix = "ao3-v"
+auto_update = true
