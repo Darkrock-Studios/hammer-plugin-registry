@@ -14,3 +14,11 @@ repo_id = 1404820522
 asset = "name-checker.hammerplugin"
 tag_prefix = "name-checker-v"
 auto_update = true
+
+[[releases]]
+version = "0.2.0"
+url = "https://github.com/Darkrock-Studios/hammer-plugins/releases/download/name-checker-v0.2.0/name-checker.hammerplugin"
+sha256 = "8c512885269f6a2e27c5f36887c39538891e8e5e98f00d40b5ddb3e63baa7daf"
+size = 1893974
+published = 2026-11-12T20:55:38Z
+yanked = false
