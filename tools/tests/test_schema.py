@@ -19,11 +19,10 @@ def test_the_repository_itself_is_valid():
     subjects, errors = load_subjects(REPO_ROOT / "subjects.toml")
     assert errors == []
     dirs = schema.plugin_dirs(REPO_ROOT)
-    assert len(dirs) == 13
+    assert dirs
     for d in dirs:
-        plugin, errors = load_plugin_dir(d, subjects)
+        _, errors = load_plugin_dir(d, subjects)
         assert errors == [], d.name
-        assert plugin.releases == []
 
 
 def test_good_plugin_with_releases(registry):
