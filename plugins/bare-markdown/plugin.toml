@@ -14,3 +14,11 @@ repo_id = 1404820522
 asset = "bare-markdown.hammerplugin"
 tag_prefix = "bare-markdown-v"
 auto_update = true
+
+[[releases]]
+version = "0.1.0"
+url = "https://github.com/Darkrock-Studios/hammer-plugins/releases/download/bare-markdown-v0.1.0/bare-markdown.hammerplugin"
+sha256 = "d3435197a9d71a938a12ee6a79336433e4e1409614439e79a1c58f4d386a21da"
+size = 136399
+published = 2026-11-12T21:53:22Z
+yanked = false
