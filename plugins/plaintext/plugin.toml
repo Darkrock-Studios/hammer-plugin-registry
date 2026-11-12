@@ -14,3 +14,11 @@ repo_id = 1404820522
 asset = "plaintext.hammerplugin"
 tag_prefix = "plaintext-v"
 auto_update = true
+
+[[releases]]
+version = "1.0.0"
+url = "https://github.com/Darkrock-Studios/hammer-plugins/releases/download/plaintext-v1.0.0/plaintext.hammerplugin"
+sha256 = "c519642103eb68a42ba22a8fb7978bf218cc1d7c9841a0708af45cf314641fb1"
+size = 8605
+published = 2026-11-12T20:49:33Z
+yanked = false
