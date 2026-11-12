@@ -14,3 +14,11 @@ repo_id = 1404820522
 asset = "first-meeting.hammerplugin"
 tag_prefix = "first-meeting-v"
 auto_update = true
+
+[[releases]]
+version = "0.1.0"
+url = "https://github.com/Darkrock-Studios/hammer-plugins/releases/download/first-meeting-v0.1.0/first-meeting.hammerplugin"
+sha256 = "f1c559c4a079277474026991d19d5e27e7a7459f808394cc7ba446ef43cca219"
+size = 107818
+published = 2026-11-12T20:56:08Z
+yanked = false
