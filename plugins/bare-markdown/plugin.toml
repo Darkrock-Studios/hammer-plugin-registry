@@ -1,0 +1,16 @@
+[plugin]
+id = "bare-markdown"
+official = true
+license = "MIT"
+language = "Kotlin"
+subject = "submission"
+homepage = "https://github.com/Darkrock-Studios/hammer-plugins/tree/main/bare-markdown"
+issues = "https://github.com/Darkrock-Studios/hammer-plugins/issues"
+maintainers = ["Wavesonics"]
+
+[source]
+github = "Darkrock-Studios/hammer-plugins"
+repo_id = 1404820522
+asset = "bare-markdown.hammerplugin"
+tag_prefix = "bare-markdown-v"
+auto_update = true
