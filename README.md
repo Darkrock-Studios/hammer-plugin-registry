@@ -143,7 +143,7 @@ The workflows expect:
 
 - `needs-review` and `report` labels;
 - "Allow auto-merge" on;
-- a GitHub App for the bot, installed on this repository only, with read and write access to
+- a GitHub App for the bot (here `hammer-registry-bot`), installed on this repository only, with read and write access to
   contents, issues and pull requests, and no webhook. Its id goes in the `REGISTRY_BOT_APP_ID`
   variable, its login (`<slug>[bot]`) in `REGISTRY_BOT_LOGIN`, and a private key in the
   `REGISTRY_BOT_PRIVATE_KEY` secret;
