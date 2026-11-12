@@ -14,3 +14,11 @@ repo_id = 1404820522
 asset = "ao3.hammerplugin"
 tag_prefix = "ao3-v"
 auto_update = true
+
+[[releases]]
+version = "0.1.0"
+url = "https://github.com/Darkrock-Studios/hammer-plugins/releases/download/ao3-v0.1.0/ao3.hammerplugin"
+sha256 = "cf07527b805a9b2afb0b2496484877e2936903ffbb51abd22233f53ca99923b6"
+size = 96998
+published = 2026-11-12T20:55:58Z
+yanked = false
