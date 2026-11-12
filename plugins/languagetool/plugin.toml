@@ -14,3 +14,11 @@ repo_id = 1404820522
 asset = "languagetool.hammerplugin"
 tag_prefix = "languagetool-v"
 auto_update = true
+
+[[releases]]
+version = "0.2.0"
+url = "https://github.com/Darkrock-Studios/hammer-plugins/releases/download/languagetool-v0.2.0/languagetool.hammerplugin"
+sha256 = "d23e112454420dc2922ab1cfdc0e76f37d179c7cd7c50ca1787f2fbc844ed14f"
+size = 103549
+published = 2026-11-12T20:56:50Z
+yanked = false
