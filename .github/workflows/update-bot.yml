@@ -15,9 +15,7 @@ jobs:
   update:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
-      pull-requests: write
-      actions: write
+      contents: read
     env:
       PYTHONDONTWRITEBYTECODE: "1"
     steps:
@@ -25,6 +23,14 @@ jobs:
         with:
           ref: main
           persist-credentials: false
+
+      # The bot commits and opens pull requests as the registry's GitHub App, which may bypass main's
+      # ruleset, and whose pushes and pull requests start the publish and validate workflows.
+      - uses: actions/create-github-app-token@v2
+        id: app
+        with:
+          app-id: ${{ vars.REGISTRY_BOT_APP_ID }}
+          private-key: ${{ secrets.REGISTRY_BOT_PRIVATE_KEY }}
 
       - uses: actions/setup-python@v5
         with:
@@ -39,12 +45,6 @@ jobs:
       - name: Pin new releases
         id: bot
         env:
-          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: ${{ steps.app.outputs.token }}
         run: python -m tools.update_bot --base main --cache "$RUNNER_TEMP/assets"
 
-      # A push made with the workflow token starts no workflow, so publish the index explicitly.
-      - name: Publish the index
-        if: always() && steps.bot.outputs.committed == 'true'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: gh workflow run publish-index.yml --repo "${{ github.repository }}" --ref main

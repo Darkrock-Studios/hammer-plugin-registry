@@ -142,19 +142,21 @@ python -m pytest
 The workflows expect:
 
 - `needs-review` and `report` labels;
-- "Allow auto-merge" on, and branch protection on `main` requiring the `Validate / validate` check;
-- "Allow GitHub Actions to create and approve pull requests" on, for the bot's pull requests;
-- branch protection on `main` that lets GitHub Actions push: the bot commits releases with no new
-  permission straight to `main` through the API, as `github-actions[bot]`, so add it to the bypass
-  list of any rule that requires pull requests or status checks, or the bot's commits fail every hour;
+- "Allow auto-merge" on;
+- a GitHub App for the bot, installed on this repository only, with read and write access to
+  contents, issues and pull requests, and no webhook. Its id goes in the `REGISTRY_BOT_APP_ID`
+  variable, its login (`<slug>[bot]`) in `REGISTRY_BOT_LOGIN`, and a private key in the
+  `REGISTRY_BOT_PRIVATE_KEY` secret;
+- a ruleset on `main` requiring the `validate` and `pytest` checks, with the app and repository
+  admins on its bypass list: the bot commits releases with no new permission straight to `main`;
 - optionally, a `LIBRARY_REFRESH_URL` variable and a `LIBRARY_REFRESH_SECRET` secret, so publishing
   the index tells the library to refresh.
 
 `tests.yml` runs the tools' tests on every pull request and push to `main`. `validate.yml` runs on
 `pull_request_target` so it can label and merge pull requests from forks. It
-runs the base branch's tools and reads the pull request only as data. Pushes and merges made with the
-workflow token start no other workflow, so the bot starts `publish-index.yml` itself, and that
-workflow also runs hourly to catch up after automatic merges.
+runs the base branch's tools and reads the pull request only as data. The bot and the auto-merges
+act as the app rather than with the workflow token, so their pushes and pull requests start the
+publish and validate workflows. `publish-index.yml` also runs hourly to catch up on anything missed.
 
 ## License
 

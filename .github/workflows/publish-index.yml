@@ -4,8 +4,7 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
-  # Merges made with the workflow token (auto-merge enabled by the validate workflow) start no push
-  # workflow, so a scheduled run catches main up; it does nothing when the index is current.
+  # Catches main up if a push's run was missed; it does nothing when the index is current.
   schedule:
     - cron: "47 * * * *"
 

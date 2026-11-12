@@ -52,8 +52,15 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           AUTHOR: ${{ github.event.pull_request.user.login }}
+          BOT: ${{ vars.REGISTRY_BOT_LOGIN }}
         shell: bash
         run: |
+          # The registry's own bot acts for the registry. Its pull requests only pin releases, and only
+          # exist because a release asks for new permissions, so they always need review.
+          if [ -n "$BOT" ] && [ "$AUTHOR" = "$BOT" ]; then
+            echo "permission=admin" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
           # 404 means not a collaborator. Any other failure stops here rather than demoting the author.
           if permission=$(gh api "repos/${{ github.repository }}/collaborators/$AUTHOR/permission" --jq .permission 2> "$RUNNER_TEMP/permission.err"); then
             :
@@ -81,25 +88,35 @@ jobs:
   triage:
     needs: validate
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
+    permissions: {}
     env:
-      GH_TOKEN: ${{ github.token }}
       GH_REPO: ${{ github.repository }}
       PR: ${{ github.event.pull_request.number }}
     steps:
+      # As the registry's GitHub App, so that the push of an auto-merge starts the publish workflow.
+      - uses: actions/create-github-app-token@v2
+        id: app
+        with:
+          app-id: ${{ vars.REGISTRY_BOT_APP_ID }}
+          private-key: ${{ secrets.REGISTRY_BOT_PRIVATE_KEY }}
+
       - name: Needs review
         if: needs.validate.outputs.needs_review == 'true'
+        env:
+          GH_TOKEN: ${{ steps.app.outputs.token }}
         run: |
           gh api -X POST "repos/$GH_REPO/issues/$PR/labels" -f "labels[]=needs-review" > /dev/null
           gh pr merge "$PR" --disable-auto || true
 
       - name: No review needed
         if: needs.validate.outputs.needs_review != 'true'
+        env:
+          GH_TOKEN: ${{ steps.app.outputs.token }}
         run: gh api -X DELETE "repos/$GH_REPO/issues/$PR/labels/needs-review" > /dev/null 2>&1 || true
 
-      # Enables auto-merge rather than merging, so branch protection's required checks still decide.
+      # Enables auto-merge rather than merging, so the ruleset's required checks still decide.
       - name: Enable auto-merge
         if: needs.validate.outputs.needs_review != 'true' && needs.validate.outputs.auto_merge == 'true'
+        env:
+          GH_TOKEN: ${{ steps.app.outputs.token }}
         run: gh pr merge "$PR" --auto --squash
