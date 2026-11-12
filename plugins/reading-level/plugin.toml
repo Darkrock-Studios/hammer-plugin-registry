@@ -14,3 +14,11 @@ repo_id = 1404820522
 asset = "reading-level.hammerplugin"
 tag_prefix = "reading-level-v"
 auto_update = true
+
+[[releases]]
+version = "0.1.0"
+url = "https://github.com/Darkrock-Studios/hammer-plugins/releases/download/reading-level-v0.1.0/reading-level.hammerplugin"
+sha256 = "cdbc0e7378b63c2f8411e9684215998f449488f03210a4419a1dfb8bd525d38b"
+size = 812561
+published = 2026-11-12T20:56:30Z
+yanked = false
