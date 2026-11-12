@@ -14,3 +14,11 @@ repo_id = 1404820522
 asset = "harper-grammar.hammerplugin"
 tag_prefix = "harper-grammar-v"
 auto_update = true
+
+[[releases]]
+version = "0.2.0"
+url = "https://github.com/Darkrock-Studios/hammer-plugins/releases/download/harper-grammar-v0.2.0/harper-grammar.hammerplugin"
+sha256 = "19ea5109eb1b45d3876747e80c5983a1511aa0082d849677c5e506082b78f276"
+size = 25790794
+published = 2026-11-12T20:57:33Z
+yanked = false
