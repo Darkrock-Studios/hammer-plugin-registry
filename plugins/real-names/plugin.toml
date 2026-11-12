@@ -14,3 +14,11 @@ repo_id = 1404820522
 asset = "real-names.hammerplugin"
 tag_prefix = "real-names-v"
 auto_update = true
+
+[[releases]]
+version = "0.1.0"
+url = "https://github.com/Darkrock-Studios/hammer-plugins/releases/download/real-names-v0.1.0/real-names.hammerplugin"
+sha256 = "ff88f2a6b554ae5f1f17dfae4b9927ea6405af352a48869d5983e27d83c66eea"
+size = 1750672
+published = 2026-11-12T20:56:03Z
+yanked = false
