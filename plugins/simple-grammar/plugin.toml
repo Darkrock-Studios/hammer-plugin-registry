@@ -14,3 +14,11 @@ repo_id = 1404820522
 asset = "simple-grammar.hammerplugin"
 tag_prefix = "simple-grammar-v"
 auto_update = true
+
+[[releases]]
+version = "0.4.0"
+url = "https://github.com/Darkrock-Studios/hammer-plugins/releases/download/simple-grammar-v0.4.0/simple-grammar.hammerplugin"
+sha256 = "275f5fc98ed3730cbb4c1b17ac3f47800a28431b2a525035b5ec75b4d5fef87b"
+size = 56079
+published = 2026-11-12T20:55:32Z
+yanked = false
