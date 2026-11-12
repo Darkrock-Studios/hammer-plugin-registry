@@ -14,3 +14,11 @@ repo_id = 1404820522
 asset = "scifi-names.hammerplugin"
 tag_prefix = "scifi-names-v"
 auto_update = true
+
+[[releases]]
+version = "0.1.0"
+url = "https://github.com/Darkrock-Studios/hammer-plugins/releases/download/scifi-names-v0.1.0/scifi-names.hammerplugin"
+sha256 = "fcd638589f4a204b016d72f3346aae1e1cb1c58737755232b897628859024e67"
+size = 174388
+published = 2026-11-12T20:56:11Z
+yanked = false
