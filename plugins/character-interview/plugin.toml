@@ -14,3 +14,11 @@ repo_id = 1404820522
 asset = "character-interview.hammerplugin"
 tag_prefix = "character-interview-v"
 auto_update = true
+
+[[releases]]
+version = "0.1.0"
+url = "https://github.com/Darkrock-Studios/hammer-plugins/releases/download/character-interview-v0.1.0/character-interview.hammerplugin"
+sha256 = "a1c22f4afb9204a423846f156862990c66e3b82e23aec467e2c56a063a95c442"
+size = 159897
+published = 2026-11-12T20:56:26Z
+yanked = false
