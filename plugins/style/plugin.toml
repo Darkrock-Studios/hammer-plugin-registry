@@ -14,3 +14,11 @@ repo_id = 1404820522
 asset = "style.hammerplugin"
 tag_prefix = "style-v"
 auto_update = true
+
+[[releases]]
+version = "0.2.0"
+url = "https://github.com/Darkrock-Studios/hammer-plugins/releases/download/style-v0.2.0/style.hammerplugin"
+sha256 = "112f4c39963dd4ff8f54101b6758a521409ce93542fc8fce466cf5303da44e94"
+size = 74059
+published = 2026-11-12T20:56:06Z
+yanked = false
