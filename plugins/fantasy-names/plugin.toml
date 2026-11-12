@@ -14,3 +14,11 @@ repo_id = 1404820522
 asset = "fantasy-names.hammerplugin"
 tag_prefix = "fantasy-names-v"
 auto_update = true
+
+[[releases]]
+version = "0.1.0"
+url = "https://github.com/Darkrock-Studios/hammer-plugins/releases/download/fantasy-names-v0.1.0/fantasy-names.hammerplugin"
+sha256 = "f4613be979cef6a8ec8d7357e3c3e67695fef23d77dae37a71e6ba77430a926d"
+size = 212364
+published = 2026-11-12T20:56:32Z
+yanked = false
