@@ -22,3 +22,11 @@ sha256 = "d23e112454420dc2922ab1cfdc0e76f37d179c7cd7c50ca1787f2fbc844ed14f"
 size = 103549
 published = 2026-11-12T20:56:50Z
 yanked = false
+
+[[releases]]
+version = "0.2.1"
+url = "https://github.com/Darkrock-Studios/hammer-plugins/releases/download/languagetool-v0.2.1/languagetool.hammerplugin"
+sha256 = "19d853c8f54d011cd19e560316dd81d00a0013f72ba2437f9867c83bb837cf8b"
+size = 103532
+published = 2026-11-13T00:07:36Z
+yanked = false
