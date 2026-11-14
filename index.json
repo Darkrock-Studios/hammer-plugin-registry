@@ -1,0 +1,1040 @@
+{
+  "schema": 1,
+  "generated": "2026-11-14T04:25:52Z",
+  "commit": "52651944ac0579f62c09233391876e1628abeec4",
+  "subjects": {
+    "submission": {
+      "name": "Submission",
+      "drawer": "export",
+      "call": "110"
+    },
+    "report": {
+      "name": "Reports",
+      "drawer": "action",
+      "call": "210"
+    },
+    "names": {
+      "name": "Names",
+      "drawer": "action",
+      "call": "220"
+    },
+    "characters": {
+      "name": "Characters",
+      "drawer": "action",
+      "call": "230"
+    },
+    "grammar": {
+      "name": "Grammar",
+      "drawer": "diagnostic",
+      "call": "310"
+    },
+    "continuity": {
+      "name": "Continuity",
+      "drawer": "diagnostic",
+      "call": "320"
+    },
+    "ai-agents": {
+      "name": "AI agents",
+      "drawer": "command",
+      "call": "410"
+    }
+  },
+  "plugins": [
+    {
+      "id": "ao3",
+      "official": true,
+      "license": "MIT",
+      "language": "Kotlin",
+      "subject": "submission",
+      "homepage": "https://github.com/Darkrock-Studios/hammer-plugins/tree/main/ao3",
+      "issues": "https://github.com/Darkrock-Studios/hammer-plugins/issues",
+      "maintainers": [
+        "Wavesonics"
+      ],
+      "source": {
+        "github": "Darkrock-Studios/hammer-plugins",
+        "repoId": 1404820522
+      },
+      "description": {
+        "en": "Exports the story as the HTML [Archive of Our Own](https://archiveofourown.org)'s work text box takes, a chapter at a time, ready to paste.\n\nEach chapter comes under a marker line such as `===== Chapter 2 of 12: The Pool of Tears =====`. Paste what is under it into the chapter's text, in AO3's HTML editor, and the name into its chapter title. Italics, bold, links, lists and the rest are written as the tags AO3 allows, and the text is escaped so nothing in the prose is read as markup.\n\nIts setting chooses the scene break: a horizontal line, a centered `* * *`, or a blank line.\n"
+      },
+      "icon": null,
+      "screenshots": [],
+      "releases": [
+        {
+          "version": "0.1.0",
+          "url": "https://github.com/Darkrock-Studios/hammer-plugins/releases/download/ao3-v0.1.0/ao3.hammerplugin",
+          "sha256": "cf07527b805a9b2afb0b2496484877e2936903ffbb51abd22233f53ca99923b6",
+          "size": 96998,
+          "published": "2026-11-12T20:55:58Z",
+          "yanked": false,
+          "manifest": {
+            "name": "AO3",
+            "description": "Exports the story as the HTML Archive of Our Own's work text box takes, a chapter at a time, ready to paste.",
+            "api": 1,
+            "languages": [],
+            "exporters": [
+              {
+                "format": "ao3.txt",
+                "label": "AO3 (TXT)"
+              }
+            ],
+            "actions": [],
+            "diagnostics": [],
+            "commands": [],
+            "permissions": {
+              "operations": [],
+              "http": [],
+              "userHosts": null
+            },
+            "limits": {
+              "memory": 64
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "bare-markdown",
+      "official": true,
+      "license": "MIT",
+      "language": "Kotlin",
+      "subject": "submission",
+      "homepage": "https://github.com/Darkrock-Studios/hammer-plugins/tree/main/bare-markdown",
+      "issues": "https://github.com/Darkrock-Studios/hammer-plugins/issues",
+      "maintainers": [
+        "Wavesonics"
+      ],
+      "source": {
+        "github": "Darkrock-Studios/hammer-plugins",
+        "repoId": 1404820522
+      },
+      "description": {
+        "en": "Exports the story as one Markdown document, for blogs, static sites, and anywhere else that takes Markdown. The project's name is the title and each chapter a heading, and each scene is written as Hammer stores it, so the Markdown is your own, untouched.\n\nHammer's images are left out, since nothing outside Hammer can show them. For the story with its images, use Hammer's own Markdown export, which writes a ZIP of the story with its images.\n\nIts setting numbers the chapter headings, as in `## 2. The Pool of Tears`.\n"
+      },
+      "icon": null,
+      "screenshots": [],
+      "releases": [
+        {
+          "version": "0.1.0",
+          "url": "https://github.com/Darkrock-Studios/hammer-plugins/releases/download/bare-markdown-v0.1.0/bare-markdown.hammerplugin",
+          "sha256": "d3435197a9d71a938a12ee6a79336433e4e1409614439e79a1c58f4d386a21da",
+          "size": 136399,
+          "published": "2026-11-12T21:53:22Z",
+          "yanked": false,
+          "manifest": {
+            "name": "Bare Markdown",
+            "description": "Exports the story as one bare Markdown document, each chapter a heading and each scene as written, without Hammer's images.",
+            "api": 1,
+            "languages": [],
+            "exporters": [
+              {
+                "format": "bare-markdown.md",
+                "label": "Bare Markdown (MD)"
+              }
+            ],
+            "actions": [],
+            "diagnostics": [],
+            "commands": [],
+            "permissions": {
+              "operations": [],
+              "http": [],
+              "userHosts": null
+            },
+            "limits": {
+              "memory": 64
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "character-interview",
+      "official": true,
+      "license": "MIT",
+      "language": "Kotlin",
+      "subject": "characters",
+      "homepage": "https://github.com/Darkrock-Studios/hammer-plugins/tree/main/character-interview",
+      "issues": "https://github.com/Darkrock-Studios/hammer-plugins/issues",
+      "maintainers": [
+        "Wavesonics"
+      ],
+      "source": {
+        "github": "Darkrock-Studios/hammer-plugins",
+        "repoId": 1404820522
+      },
+      "description": {
+        "en": "Interviews a character, a page of questions at a time, then writes the answers into a new encyclopedia entry for them and opens it. Run it from Project Home and give the character's name.\n\nThere are three sets of questions: a quick one of 12, a full one of 33, and the 31 questions of the confession album Marcel Proust filled in around 1890, in an English wording of the plugin's own. If you close the dialog part way through, the interview is kept, and running it again picks up where you left off.\n"
+      },
+      "icon": null,
+      "screenshots": [],
+      "releases": [
+        {
+          "version": "0.1.0",
+          "url": "https://github.com/Darkrock-Studios/hammer-plugins/releases/download/character-interview-v0.1.0/character-interview.hammerplugin",
+          "sha256": "a1c22f4afb9204a423846f156862990c66e3b82e23aec467e2c56a063a95c442",
+          "size": 159897,
+          "published": "2026-11-12T20:56:26Z",
+          "yanked": false,
+          "manifest": {
+            "name": "Character interview",
+            "description": "Interviews a character a page of questions at a time (a quick dozen, a full set, or Proust's questionnaire) and writes the answers into a new encyclopedia entry for them.",
+            "api": 1,
+            "languages": [],
+            "exporters": [],
+            "actions": [
+              {
+                "name": "interview",
+                "label": "Interview a character"
+              }
+            ],
+            "diagnostics": [],
+            "commands": [],
+            "permissions": {
+              "operations": [
+                "entry.create"
+              ],
+              "http": [],
+              "userHosts": null
+            },
+            "limits": {
+              "memory": 64
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "fantasy-names",
+      "official": true,
+      "license": "MIT",
+      "language": "Kotlin",
+      "subject": "names",
+      "homepage": "https://github.com/Darkrock-Studios/hammer-plugins/tree/main/fantasy-names",
+      "issues": "https://github.com/Darkrock-Studios/hammer-plugins/issues",
+      "maintainers": [
+        "Wavesonics"
+      ],
+      "source": {
+        "github": "Darkrock-Studios/hammer-plugins",
+        "repoId": 1404820522
+      },
+      "description": {
+        "en": "Makes up names in a fantasy style, each with a button that adds it to the encyclopedia as a person. Run it from Project Home or from an encyclopedia entry.\n\nThere are nine styles: elvish (Welsh), high elvish (Finnish), dwarvish (Old Norse), old kingdom (Old English), imperial (Latin), mythic (Ancient Greek), highland (Gaelic), forest (Slavic), and orcish. Most are built to sound like the real names of the language in brackets, which ship with the plugin. You choose feminine, masculine, or any given names, how many to make (up to 20), and whether they come with second names.\n\nThe real names are from Wiktionary, shared under CC BY-SA 4.0, and Wikidata. The package's `resources/styles/NOTICE.txt` lists each source.\n"
+      },
+      "icon": null,
+      "screenshots": [],
+      "releases": [
+        {
+          "version": "0.1.0",
+          "url": "https://github.com/Darkrock-Studios/hammer-plugins/releases/download/fantasy-names-v0.1.0/fantasy-names.hammerplugin",
+          "sha256": "f4613be979cef6a8ec8d7357e3c3e67695fef23d77dae37a71e6ba77430a926d",
+          "size": 212364,
+          "published": "2026-11-12T20:56:32Z",
+          "yanked": false,
+          "manifest": {
+            "name": "Fantasy names",
+            "description": "Makes up names in a fantasy style, elvish, dwarvish, imperial, orcish, and more, most sounding like the names of an old language, and adds the ones you pick to the encyclopedia as people.",
+            "api": 1,
+            "languages": [],
+            "exporters": [],
+            "actions": [
+              {
+                "name": "names",
+                "label": "Generate fantasy names"
+              }
+            ],
+            "diagnostics": [],
+            "commands": [],
+            "permissions": {
+              "operations": [
+                "entry.create"
+              ],
+              "http": [],
+              "userHosts": null
+            },
+            "limits": {
+              "memory": 64
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "first-meeting",
+      "official": true,
+      "license": "MIT",
+      "language": "Kotlin",
+      "subject": "characters",
+      "homepage": "https://github.com/Darkrock-Studios/hammer-plugins/tree/main/first-meeting",
+      "issues": "https://github.com/Darkrock-Studios/hammer-plugins/issues",
+      "maintainers": [
+        "Wavesonics"
+      ],
+      "source": {
+        "github": "Darkrock-Studios/hammer-plugins",
+        "repoId": 1404820522
+      },
+      "description": {
+        "en": "Finds the first scene, in story order, that has both of two characters in its References. Run it from Project Home, or from a character's encyclopedia entry, which is then picked first, and choose the pair by name.\n\nIt names the scene and its chapter, and lists the other scenes the two share, with a button opening each of the first ten. When they share no scene, it says whether either of them is in no scene's References at all.\n"
+      },
+      "icon": null,
+      "screenshots": [],
+      "releases": [
+        {
+          "version": "0.1.0",
+          "url": "https://github.com/Darkrock-Studios/hammer-plugins/releases/download/first-meeting-v0.1.0/first-meeting.hammerplugin",
+          "sha256": "f1c559c4a079277474026991d19d5e27e7a7459f808394cc7ba446ef43cca219",
+          "size": 107818,
+          "published": "2026-11-12T20:56:08Z",
+          "yanked": false,
+          "manifest": {
+            "name": "First meeting",
+            "description": "Finds the first scene, in story order, with both of two characters in its References, and lists the other scenes they share, with buttons opening the first few.",
+            "api": 1,
+            "languages": [],
+            "exporters": [],
+            "actions": [
+              {
+                "name": "meet",
+                "label": "Find where two characters first meet"
+              }
+            ],
+            "diagnostics": [],
+            "commands": [],
+            "permissions": {
+              "operations": [
+                "entry.read",
+                "scene.tree"
+              ],
+              "http": [],
+              "userHosts": null
+            },
+            "limits": {
+              "memory": 64
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "harper-grammar",
+      "official": true,
+      "license": "MIT",
+      "language": "Rust",
+      "subject": "grammar",
+      "homepage": "https://github.com/Darkrock-Studios/hammer-plugins/tree/main/harper-grammar",
+      "issues": "https://github.com/Darkrock-Studios/hammer-plugins/issues",
+      "maintainers": [
+        "Wavesonics"
+      ],
+      "source": {
+        "github": "Darkrock-Studios/hammer-plugins",
+        "repoId": 1404820522
+      },
+      "description": {
+        "en": "English grammar and style checks from [Harper](https://writewithharper.com/), underlined in the editor as you write. Harper runs entirely locally, so your text is not sent anywhere, and works offline.\n\nSettings available to control specific rules: grammar (agreement, word order, \"a\" or \"an\", and repeated words), word choice, punctuation and capitalization, style (wordiness, redundancy, and readability), and sentences over 40 words.\n\nHarper is thorough but large: it needs about 100 MB of memory.\n"
+      },
+      "icon": null,
+      "screenshots": [],
+      "releases": [
+        {
+          "version": "0.2.1",
+          "url": "https://github.com/Darkrock-Studios/hammer-plugins/releases/download/harper-grammar-v0.2.1/harper-grammar.hammerplugin",
+          "sha256": "77236085fe582eb15bbfe263fdb9b31420941fd7098444863cc9cc186c44474a",
+          "size": 25790780,
+          "published": "2026-11-13T00:09:02Z",
+          "yanked": false,
+          "manifest": {
+            "name": "Harper grammar",
+            "description": "Grammar and style checks from [Harper](https://writewithharper.com/), underlined as you write. Thorough, but English only.",
+            "api": 1,
+            "languages": [
+              "en"
+            ],
+            "exporters": [],
+            "actions": [],
+            "diagnostics": [
+              {
+                "name": "grammar",
+                "label": "Harper grammar"
+              }
+            ],
+            "commands": [],
+            "permissions": {
+              "operations": [],
+              "http": [],
+              "userHosts": null
+            },
+            "limits": {
+              "memory": 256
+            }
+          }
+        },
+        {
+          "version": "0.2.0",
+          "url": "https://github.com/Darkrock-Studios/hammer-plugins/releases/download/harper-grammar-v0.2.0/harper-grammar.hammerplugin",
+          "sha256": "19ea5109eb1b45d3876747e80c5983a1511aa0082d849677c5e506082b78f276",
+          "size": 25790794,
+          "published": "2026-11-12T20:57:33Z",
+          "yanked": false,
+          "manifest": {
+            "name": "Harper grammar",
+            "description": "Grammar and style checks from [Harper](https://writewithharper.com/), underlined as you write. Thorough, but large: it needs about 100 MB of memory.",
+            "api": 1,
+            "languages": [
+              "en"
+            ],
+            "exporters": [],
+            "actions": [],
+            "diagnostics": [
+              {
+                "name": "grammar",
+                "label": "Harper grammar"
+              }
+            ],
+            "commands": [],
+            "permissions": {
+              "operations": [],
+              "http": [],
+              "userHosts": null
+            },
+            "limits": {
+              "memory": 256
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "languagetool",
+      "official": true,
+      "license": "MIT",
+      "language": "Rust",
+      "subject": "grammar",
+      "homepage": "https://github.com/Darkrock-Studios/hammer-plugins/tree/main/languagetool",
+      "issues": "https://github.com/Darkrock-Studios/hammer-plugins/issues",
+      "maintainers": [
+        "Wavesonics"
+      ],
+      "source": {
+        "github": "Darkrock-Studios/hammer-plugins",
+        "repoId": 1404820522
+      },
+      "description": {
+        "en": "Grammar, punctuation, and style checks from [LanguageTool](https://languagetool.org), underlined in the editor as you write, in more than 30 languages.\n\nThe text you write is sent over the internet to be checked. In its settings you choose where: your Hammer sync server if it has grammar checking enabled, LanguageTool's free service, LanguageTool Premium with your account's email and API key, or a LanguageTool server of your own.\n\nIts settings also control picky checks of style and typography, and style suggestions for wordiness, redundancy, and register, which are underlined more quietly than mistakes.\n"
+      },
+      "icon": null,
+      "screenshots": [],
+      "releases": [
+        {
+          "version": "0.2.1",
+          "url": "https://github.com/Darkrock-Studios/hammer-plugins/releases/download/languagetool-v0.2.1/languagetool.hammerplugin",
+          "sha256": "19d853c8f54d011cd19e560316dd81d00a0013f72ba2437f9867c83bb837cf8b",
+          "size": 103532,
+          "published": "2026-11-13T00:07:36Z",
+          "yanked": false,
+          "manifest": {
+            "name": "LanguageTool",
+            "description": "Grammar, punctuation, and style from [LanguageTool](https://languagetool.org), checked as you write, in more than 30 languages. The text you write is sent to a LanguageTool server. Host your own, or use your Hammer sync server if it offers grammar checking.",
+            "api": 1,
+            "languages": [],
+            "exporters": [],
+            "actions": [],
+            "diagnostics": [
+              {
+                "name": "grammar",
+                "label": "LanguageTool"
+              }
+            ],
+            "commands": [],
+            "permissions": {
+              "operations": [],
+              "http": [
+                "api.languagetool.org",
+                "api.languagetoolplus.com"
+              ],
+              "userHosts": {
+                "setting": "server"
+              }
+            },
+            "limits": {
+              "memory": 64
+            }
+          }
+        },
+        {
+          "version": "0.2.0",
+          "url": "https://github.com/Darkrock-Studios/hammer-plugins/releases/download/languagetool-v0.2.0/languagetool.hammerplugin",
+          "sha256": "d23e112454420dc2922ab1cfdc0e76f37d179c7cd7c50ca1787f2fbc844ed14f",
+          "size": 103549,
+          "published": "2026-11-12T20:56:50Z",
+          "yanked": false,
+          "manifest": {
+            "name": "LanguageTool",
+            "description": "Grammar, punctuation, and style from [LanguageTool](https://languagetool.org), underlined as you write, in more than 30 languages. The text you write is sent to LanguageTool's servers to be checked, to your own LanguageTool server if you run one, or to your Hammer sync server if it offers grammar checking.",
+            "api": 1,
+            "languages": [],
+            "exporters": [],
+            "actions": [],
+            "diagnostics": [
+              {
+                "name": "grammar",
+                "label": "LanguageTool"
+              }
+            ],
+            "commands": [],
+            "permissions": {
+              "operations": [],
+              "http": [
+                "api.languagetool.org",
+                "api.languagetoolplus.com"
+              ],
+              "userHosts": {
+                "setting": "server"
+              }
+            },
+            "limits": {
+              "memory": 64
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "mcp",
+      "official": true,
+      "license": "MIT",
+      "language": "Kotlin",
+      "subject": "ai-agents",
+      "homepage": "https://github.com/Darkrock-Studios/hammer-plugins/tree/main/mcp",
+      "issues": "https://github.com/Darkrock-Studios/hammer-plugins/issues",
+      "maintainers": [
+        "Wavesonics"
+      ],
+      "source": {
+        "github": "Darkrock-Studios/hammer-plugins",
+        "repoId": 1404820522
+      },
+      "description": {
+        "en": "An MCP server for AI agents, run as the `hammer mcp` command on desktop. An agent that speaks the [Model Context Protocol](https://modelcontextprotocol.io) starts it and gets Hammer's operations as tools. It can always read your projects: scenes and drafts, notes, encyclopedia entries and their images, ideas, timelines, tags, and writing stats, and it can search and export them. It never writes your prose: no tool changes a scene's text.\n\nTwo settings, both off by default, let an agent do more. One lets it make changes: organize scenes, and edit outlines, tags, references, notes, encyclopedia entries, images, timelines, and ideas, and make backups. The other lets it delete scenes, drafts, notes, entries, images, timeline events, and ideas, but never a whole project. No setting lets it install or remove plugins.\n\nIt works whether Hammer is open or not. With the app running, an agent's changes show up in the open project.\n"
+      },
+      "icon": null,
+      "screenshots": [],
+      "releases": [
+        {
+          "version": "0.6.0",
+          "url": "https://github.com/Darkrock-Studios/hammer-plugins/releases/download/mcp-v0.6.0/mcp.hammerplugin",
+          "sha256": "b4d71e71972d8b4321025cb8c5134ff261b2941e43b54ca4932a1a8ab859d302",
+          "size": 89772,
+          "published": "2026-11-14T04:24:10Z",
+          "yanked": false,
+          "manifest": {
+            "name": "MCP server",
+            "description": "Lets AI agents such as Claude read your projects through the Model Context Protocol, and, if you allow it in its settings, organize them. It never writes prose.",
+            "api": 1,
+            "languages": [],
+            "exporters": [],
+            "actions": [],
+            "diagnostics": [],
+            "commands": [
+              {
+                "name": "mcp",
+                "help": "Serves your projects to AI agents over MCP, on standard input and output."
+              }
+            ],
+            "permissions": {
+              "operations": [
+                "content:read",
+                "plugins:read",
+                "project.create",
+                "project.rename",
+                "backup.create",
+                "scene.create",
+                "scene.rename",
+                "scene.move",
+                "scene.archive",
+                "scene.unarchive",
+                "scene.meta.write",
+                "scene.references.set",
+                "draft.create",
+                "note.create",
+                "note.update",
+                "entry.create",
+                "entry.update",
+                "entry.images.add",
+                "entry.images.remove",
+                "entry.images.primary",
+                "entry.images.import",
+                "image.add",
+                "image.replace",
+                "image.rename",
+                "timeline.create",
+                "timeline.update",
+                "timeline.move",
+                "timeline.place",
+                "timeline.set",
+                "timeline.settings.write",
+                "timeline.def.create",
+                "idea.create",
+                "idea.update",
+                "idea.archive",
+                "idea.unarchive",
+                "scene.delete",
+                "draft.delete",
+                "note.delete",
+                "entry.delete",
+                "image.delete",
+                "timeline.delete",
+                "timeline.def.delete",
+                "idea.delete"
+              ],
+              "http": [],
+              "userHosts": null
+            },
+            "limits": {
+              "memory": 64
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "name-checker",
+      "official": true,
+      "license": "MIT",
+      "language": "Rust",
+      "subject": "continuity",
+      "homepage": "https://github.com/Darkrock-Studios/hammer-plugins/tree/main/name-checker",
+      "issues": "https://github.com/Darkrock-Studios/hammer-plugins/issues",
+      "maintainers": [
+        "Wavesonics"
+      ],
+      "source": {
+        "github": "Darkrock-Studios/hammer-plugins",
+        "repoId": 1404820522
+      },
+      "description": {
+        "en": "Keeps the names in your story in line with the encyclopedia. As you write, it underlines words spelled close to an entry's name, and names written in lower case.\n\nThe Names report, from Project Home, lists where each entry is mentioned, likely misspellings, and names used often that have no entry. Only names the project language's word list does not know are checked, so a name that is also a word, such as \"Grace\", is left to spell check. It ships word lists for English, French, German, Spanish, Italian, and Ukrainian, and checks only languages it has a list for.\n\nThe word lists other than English are built from a subtitle frequency list and spell-check dictionaries, and shared under their terms; the package's `resources/words/NOTICE.txt` lists them.\n"
+      },
+      "icon": null,
+      "screenshots": [],
+      "releases": [
+        {
+          "version": "0.2.0",
+          "url": "https://github.com/Darkrock-Studios/hammer-plugins/releases/download/name-checker-v0.2.0/name-checker.hammerplugin",
+          "sha256": "8c512885269f6a2e27c5f36887c39538891e8e5e98f00d40b5ddb3e63baa7daf",
+          "size": 1893974,
+          "published": "2026-11-12T20:55:38Z",
+          "yanked": false,
+          "manifest": {
+            "name": "Name checker",
+            "description": "Keeps names in line with the encyclopedia: underlines likely misspellings of a name and names written in lower case, and reports where each entry is mentioned and which names have no entry.",
+            "api": 1,
+            "languages": [
+              "en",
+              "fr",
+              "de",
+              "es",
+              "it",
+              "uk"
+            ],
+            "exporters": [],
+            "actions": [
+              {
+                "name": "report",
+                "label": "Names report"
+              }
+            ],
+            "diagnostics": [
+              {
+                "name": "names",
+                "label": "Name checker"
+              }
+            ],
+            "commands": [],
+            "permissions": {
+              "operations": [
+                "entry.list",
+                "project.info",
+                "scene.tree",
+                "scene.read"
+              ],
+              "http": [],
+              "userHosts": null
+            },
+            "limits": {
+              "memory": 64
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "plaintext",
+      "official": true,
+      "license": "MIT",
+      "language": "C",
+      "subject": "submission",
+      "homepage": "https://github.com/Darkrock-Studios/hammer-plugins/tree/main/plaintext",
+      "issues": "https://github.com/Darkrock-Studios/hammer-plugins/issues",
+      "maintainers": [
+        "Wavesonics"
+      ],
+      "source": {
+        "github": "Darkrock-Studios/hammer-plugins",
+        "repoId": 1404820522
+      },
+      "description": {
+        "en": "Exports the story as a plain text file, without formatting, for submission forms and anywhere else that takes plain text.\n\nIts settings choose the scene break (`#`, `* * *`, or a blank line), how italics are written (between underscores or asterisks, or removed), whether paragraphs are separated by a blank line or indented, and whether chapter headings are included when top-level scenes are exported as chapters.\n"
+      },
+      "icon": null,
+      "screenshots": [],
+      "releases": [
+        {
+          "version": "1.0.0",
+          "url": "https://github.com/Darkrock-Studios/hammer-plugins/releases/download/plaintext-v1.0.0/plaintext.hammerplugin",
+          "sha256": "c519642103eb68a42ba22a8fb7978bf218cc1d7c9841a0708af45cf314641fb1",
+          "size": 8605,
+          "published": "2026-11-12T20:49:33Z",
+          "yanked": false,
+          "manifest": {
+            "name": "Plain Text",
+            "description": "Exports the story as plain text, without formatting.",
+            "api": 1,
+            "languages": [],
+            "exporters": [
+              {
+                "format": "plaintext.txt",
+                "label": "Plain Text (TXT)"
+              }
+            ],
+            "actions": [],
+            "diagnostics": [],
+            "commands": [],
+            "permissions": {
+              "operations": [],
+              "http": [],
+              "userHosts": null
+            },
+            "limits": {
+              "memory": 64
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "reading-level",
+      "official": true,
+      "license": "MIT",
+      "language": "Kotlin",
+      "subject": "report",
+      "homepage": "https://github.com/Darkrock-Studios/hammer-plugins/tree/main/reading-level",
+      "issues": "https://github.com/Darkrock-Studios/hammer-plugins/issues",
+      "maintainers": [
+        "Wavesonics"
+      ],
+      "source": {
+        "github": "Darkrock-Studios/hammer-plugins",
+        "repoId": 1404820522
+      },
+      "description": {
+        "en": "Reports the level each scene and the whole story reads at, from early reader to dense, as US school grades worked out from sentence and word length. Run it from Project Home for the whole story or chosen scenes, or from a scene.\n\nThe report lists each scene's rare words and the scenes that read well above or below the rest. It works with English, French, German, Spanish, Italian, and Ukrainian projects, each by its own formula and list of common words, and leaves encyclopedia names out of word length.\n\nThe common word lists are built from FrequencyWords, from OpenSubtitles 2018, and shared under CC BY-SA 4.0; the package's `resources/NOTICE.txt` says more.\n"
+      },
+      "icon": null,
+      "screenshots": [],
+      "releases": [
+        {
+          "version": "0.1.0",
+          "url": "https://github.com/Darkrock-Studios/hammer-plugins/releases/download/reading-level-v0.1.0/reading-level.hammerplugin",
+          "sha256": "cdbc0e7378b63c2f8411e9684215998f449488f03210a4419a1dfb8bd525d38b",
+          "size": 812561,
+          "published": "2026-11-12T20:56:30Z",
+          "yanked": false,
+          "manifest": {
+            "name": "Reading level",
+            "description": "Reports the level each scene and the whole story reads at, from early reader to dense, with each scene's rare words and the scenes that read well above or below the rest. Works with English, French, German, Spanish, Italian, and Ukrainian projects.",
+            "api": 1,
+            "languages": [
+              "en",
+              "fr",
+              "de",
+              "es",
+              "it",
+              "uk"
+            ],
+            "exporters": [],
+            "actions": [
+              {
+                "name": "report",
+                "label": "Reading level"
+              }
+            ],
+            "diagnostics": [],
+            "commands": [],
+            "permissions": {
+              "operations": [
+                "project.info",
+                "scene.tree",
+                "scene.read",
+                "entry.list"
+              ],
+              "http": [],
+              "userHosts": null
+            },
+            "limits": {
+              "memory": 64
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "real-names",
+      "official": true,
+      "license": "MIT",
+      "language": "Kotlin",
+      "subject": "names",
+      "homepage": "https://github.com/Darkrock-Studios/hammer-plugins/tree/main/real-names",
+      "issues": "https://github.com/Darkrock-Studios/hammer-plugins/issues",
+      "maintainers": [
+        "Wavesonics"
+      ],
+      "source": {
+        "github": "Darkrock-Studios/hammer-plugins",
+        "repoId": 1404820522
+      },
+      "description": {
+        "en": "Suggests real names from a culture and a decade of birth, picked as often as they were given, each with a button that adds it to the encyclopedia as a person. Run it from Project Home or from an encyclopedia entry.\n\nThere are 26 cultures, and decades of birth from the 1880s to the 2020s. You choose feminine, masculine, or any given names, common, rare, or a realistic mix, how many to make (up to 20), and whether they come with surnames. The name lists, with how many people had each name, are built from public data.\n\nThe package's `resources/names/NOTICE.txt` lists each source and its terms. The Chinese lists are for non-commercial use only.\n"
+      },
+      "icon": null,
+      "screenshots": [],
+      "releases": [
+        {
+          "version": "0.1.0",
+          "url": "https://github.com/Darkrock-Studios/hammer-plugins/releases/download/real-names-v0.1.0/real-names.hammerplugin",
+          "sha256": "ff88f2a6b554ae5f1f17dfae4b9927ea6405af352a48869d5983e27d83c66eea",
+          "size": 1750672,
+          "published": "2026-11-12T20:56:03Z",
+          "yanked": false,
+          "manifest": {
+            "name": "Real-world names",
+            "description": "Suggests real names from a culture and a decade of birth, as common as they were then, and adds the ones you pick to the encyclopedia as people.",
+            "api": 1,
+            "languages": [],
+            "exporters": [],
+            "actions": [
+              {
+                "name": "names",
+                "label": "Generate real-world names"
+              }
+            ],
+            "diagnostics": [],
+            "commands": [],
+            "permissions": {
+              "operations": [
+                "entry.create"
+              ],
+              "http": [],
+              "userHosts": null
+            },
+            "limits": {
+              "memory": 64
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "scifi-names",
+      "official": true,
+      "license": "MIT",
+      "language": "Kotlin",
+      "subject": "names",
+      "homepage": "https://github.com/Darkrock-Studios/hammer-plugins/tree/main/scifi-names",
+      "issues": "https://github.com/Darkrock-Studios/hammer-plugins/issues",
+      "maintainers": [
+        "Wavesonics"
+      ],
+      "source": {
+        "github": "Darkrock-Studios/hammer-plugins",
+        "repoId": 1404820522
+      },
+      "description": {
+        "en": "Makes up names for science fiction, each with a button that adds it to the encyclopedia. Run it from Project Home or from an encyclopedia entry.\n\nIt has three actions. Sci-fi characters makes alien names (harsh, flowing, hissing, or clipped), handles, and machine designations, added as people. Sci-fi worlds makes names that sound like the stars and moons, or of colonies and stations, or catalogue designations, added as places. Sci-fi things names ships and companies, added as things. Each makes up to 20 at a time, and characters and things can come in a long form.\n\nThe star names are those the International Astronomical Union has approved, shared under CC BY 4.0, and the moons' are from Wikidata; the package's `resources/NOTICE.txt` says more.\n"
+      },
+      "icon": null,
+      "screenshots": [],
+      "releases": [
+        {
+          "version": "0.1.0",
+          "url": "https://github.com/Darkrock-Studios/hammer-plugins/releases/download/scifi-names-v0.1.0/scifi-names.hammerplugin",
+          "sha256": "fcd638589f4a204b016d72f3346aae1e1cb1c58737755232b897628859024e67",
+          "size": 174388,
+          "published": "2026-11-12T20:56:11Z",
+          "yanked": false,
+          "manifest": {
+            "name": "Sci-fi names",
+            "description": "Makes up names for science fiction, of aliens, hackers, and machines, of worlds, and of ships and companies, and adds the ones you pick to the encyclopedia.",
+            "api": 1,
+            "languages": [],
+            "exporters": [],
+            "actions": [
+              {
+                "name": "characters",
+                "label": "Sci-fi characters"
+              },
+              {
+                "name": "worlds",
+                "label": "Sci-fi worlds"
+              },
+              {
+                "name": "things",
+                "label": "Sci-fi things"
+              }
+            ],
+            "diagnostics": [],
+            "commands": [],
+            "permissions": {
+              "operations": [
+                "entry.create"
+              ],
+              "http": [],
+              "userHosts": null
+            },
+            "limits": {
+              "memory": 64
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "simple-grammar",
+      "official": true,
+      "license": "MIT",
+      "language": "C",
+      "subject": "grammar",
+      "homepage": "https://github.com/Darkrock-Studios/hammer-plugins/tree/main/simple-grammar",
+      "issues": "https://github.com/Darkrock-Studios/hammer-plugins/issues",
+      "maintainers": [
+        "Wavesonics"
+      ],
+      "source": {
+        "github": "Darkrock-Studios/hammer-plugins",
+        "repoId": 1404820522
+      },
+      "description": {
+        "en": "Underlines slips a spell checker misses, such as \"could of\", \"le arbre\", \"they was\", and doubled words, along with spacing, capitals, and dialogue punctuation. It checks English, French, German, Spanish, Italian, and Ukrainian, and is small and fast: the whole package is about 48 KB.\n\nIts rules focus on simple, concrete mistakes. Settings available to control which checks are run: word mistakes, verb agreement (and, separately, agreement in dialogue), punctuation and capitalization, and dialogue. Wordy phrases, redundant phrases, repeated marks such as \"!!\", and long sentences are off until you turn them on.\n"
+      },
+      "icon": null,
+      "screenshots": [],
+      "releases": [
+        {
+          "version": "0.4.0",
+          "url": "https://github.com/Darkrock-Studios/hammer-plugins/releases/download/simple-grammar-v0.4.0/simple-grammar.hammerplugin",
+          "sha256": "275f5fc98ed3730cbb4c1b17ac3f47800a28431b2a525035b5ec75b4d5fef87b",
+          "size": 56079,
+          "published": "2026-11-12T20:55:32Z",
+          "yanked": false,
+          "manifest": {
+            "name": "Simple grammar",
+            "description": "Underlines slips a spell checker misses, such as \"could of\", \"le arbre\", \"they was\", and doubled words, along with spacing, capitals, and dialogue punctuation, in English, French, German, Spanish, Italian, and Ukrainian. Small and fast.",
+            "api": 1,
+            "languages": [
+              "en",
+              "fr",
+              "de",
+              "es",
+              "it",
+              "uk"
+            ],
+            "exporters": [],
+            "actions": [],
+            "diagnostics": [
+              {
+                "name": "grammar",
+                "label": "Simple grammar"
+              }
+            ],
+            "commands": [],
+            "permissions": {
+              "operations": [],
+              "http": [],
+              "userHosts": null
+            },
+            "limits": {
+              "memory": 64
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "style",
+      "official": true,
+      "license": "MIT",
+      "language": "C",
+      "subject": "report",
+      "homepage": "https://github.com/Darkrock-Studios/hammer-plugins/tree/main/style",
+      "issues": "https://github.com/Darkrock-Studios/hammer-plugins/issues",
+      "maintainers": [
+        "Wavesonics"
+      ],
+      "source": {
+        "github": "Darkrock-Studios/hammer-plugins",
+        "repoId": 1404820522
+      },
+      "description": {
+        "en": "Reports readability, adverbs, filter words, dialogue, and repeated words and phrases, for the whole story and each scene, as a document you can keep as a note. Run it from Project Home for the whole story or the scenes you choose.\n\nIt counts English, French, German, Spanish, Italian, and Ukrainian projects by their own rules and word lists, and writes the report in the language of Hammer's interface. Its settings choose whether filter words are counted, whether each scene gets its own section, how often a word repeats before it is listed, and how long each list is.\n\nSome word lists are built from a subtitle frequency list and spell-check dictionaries, and shared under their terms; the package's `resources/NOTICE.txt` lists them.\n"
+      },
+      "icon": null,
+      "screenshots": [],
+      "releases": [
+        {
+          "version": "0.2.0",
+          "url": "https://github.com/Darkrock-Studios/hammer-plugins/releases/download/style-v0.2.0/style.hammerplugin",
+          "sha256": "112f4c39963dd4ff8f54101b6758a521409ce93542fc8fce466cf5303da44e94",
+          "size": 74059,
+          "published": "2026-11-12T20:56:06Z",
+          "yanked": false,
+          "manifest": {
+            "name": "Style report",
+            "description": "Reports readability, adverbs, filter words, dialogue, and repeated words and phrases for each scene and the whole story, as a document you can keep as a note. Works with English, French, German, Spanish, Italian, and Ukrainian projects.",
+            "api": 1,
+            "languages": [
+              "en",
+              "fr",
+              "de",
+              "es",
+              "it",
+              "uk"
+            ],
+            "exporters": [],
+            "actions": [
+              {
+                "name": "report",
+                "label": "Style report"
+              }
+            ],
+            "diagnostics": [],
+            "commands": [],
+            "permissions": {
+              "operations": [
+                "project.info",
+                "scene.tree",
+                "scene.read"
+              ],
+              "http": [],
+              "userHosts": null
+            },
+            "limits": {
+              "memory": 64
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
