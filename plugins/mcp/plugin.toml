@@ -14,3 +14,11 @@ repo_id = 1404820522
 asset = "mcp.hammerplugin"
 tag_prefix = "mcp-v"
 auto_update = true
+
+[[releases]]
+version = "0.6.0"
+url = "https://github.com/Darkrock-Studios/hammer-plugins/releases/download/mcp-v0.6.0/mcp.hammerplugin"
+sha256 = "b4d71e71972d8b4321025cb8c5134ff261b2941e43b54ca4932a1a8ab859d302"
+size = 89772
+published = 2026-11-14T04:24:10Z
+yanked = false
